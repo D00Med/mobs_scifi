@@ -231,6 +231,52 @@ mobs:register_spawn("scifi_mobs:bipedm", {"default:stone","default:desert_sand"}
 
 mobs:register_egg("scifi_mobs:bipedm", "Bipedal Mech", "scifi_mech_inv.png", 0)
 
+mobs:register_mob("scifi_mobs:giant", {
+	type = "monster",
+	passive = false,
+	reach = 1,
+	damage = 2,
+	attack_type = "shoot",
+	hp_min = 22,
+	hp_max = 32,
+	armor = 230,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:blaser",
+   shoot_offset = 1,
+	collisionbox = {-1, -0.35, -1, 1, 5, 1},
+	visual = "mesh",
+	mesh = "irongiant.b3d",
+	textures = {
+		{"scifi_irongiant.png"},
+	},
+	visual_size = {x=4, y=4},
+	makes_footstep_sound = false,
+	walk_velocity = 1,
+	run_velocity = 2,
+	jump = false,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 6,
+		speed_run = 7,
+		walk_start = 1,
+		walk_end = 40,
+		stand_start = 1,
+		stand_end = 1,
+		run_start = 1,
+		run_end = 40,
+		shoot_start = 40,
+		shoot_end = 60,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:giant", {"default:stone","default:dirt_with_grass"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:giant", "Iron Giant", "scifi_giant_inv.png", 0)
+
 mobs:register_mob("scifi_mobs:metalg", {
 	type = "monster",
 	passive = false,
