@@ -192,7 +192,53 @@ mobs:register_mob("scifi_mobs:spidermech", {
 
 mobs:register_spawn("scifi_mobs:spidermech", {"default:snow","default:dirt_with_grass"}, 20, 10, 15000, 2, 31000)
 
-mobs:register_egg("scifi_mobs:spidermech", "Quadraped Mech", "scifi_spider_inv.png", 0)
+mobs:register_egg("scifi_mobs:spidermech", "Quadraped Scout", "scifi_spider_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:bb8", {
+	type = "animal",
+	passive = false,
+	reach = 1,
+	damage = 2,
+	attack_type = "dogfight",
+	hp_min = 22,
+	hp_max = 32,
+	armor = 230,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:blaser",
+   shoot_offset = 1,
+	collisionbox = {-0.4, -0.5, -0.4, 0.4, 0.6, 0.4},
+	visual = "mesh",
+	mesh = "bb8.b3d",
+	textures = {
+		{"scifi_bb8.png"},
+	},
+	visual_size = {x=2, y=2},
+	makes_footstep_sound = false,
+	walk_velocity = 2,
+	run_velocity = 3,
+	jump = true,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 10,
+		walk_start = 1,
+		walk_end = 25,
+		stand_start = 25,
+		stand_end = 46,
+		run_start = 1,
+		run_end = 25,
+		punch_start = 1,
+		punch_end = 1,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:bb8", {"default:desert_sand","default:ice"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:bb8", "BB8", "scifi_metroid_inv.png", 0)
 
 mobs:register_mob("scifi_mobs:cyberman", {
 	type = "monster",
