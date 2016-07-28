@@ -118,6 +118,7 @@ mobs:register_mob("scifi_mobs:dalec", {
 	mesh = "dalek.b3d",
 	textures = {
 		{"scifi_dalek.png"},
+		{"scifi_dalek1.png"},
 	},
 	visual_size = {x=2, y=2},
 	makes_footstep_sound = false,
@@ -193,6 +194,99 @@ mobs:register_mob("scifi_mobs:spidermech", {
 mobs:register_spawn("scifi_mobs:spidermech", {"default:snow","default:dirt_with_grass"}, 20, 10, 15000, 2, 31000)
 
 mobs:register_egg("scifi_mobs:spidermech", "Quadraped Scout", "scifi_spider_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:xenomorph", {
+	type = "monster",
+	passive = false,
+	reach = 4,
+	damage = 4,
+	attack_type = "dogfight",
+	hp_min = 12,
+	hp_max = 22,
+	armor = 30,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:rlaser",
+   shoot_offset = 1,
+	collisionbox = {-1, -0, -1, 1, 2, 1},
+	visual = "mesh",
+	mesh = "xenomorph.b3d",
+	textures = {
+		{"scifi_xenomorph.png"},
+	},
+	visual_size = {x=3, y=3},
+	makes_footstep_sound = false,
+	walk_velocity = 2,
+	run_velocity = 5,
+	jump = true,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 25,
+		walk_start = 2,
+		walk_end = 27,
+		stand_start = 59,
+		stand_end = 73,
+		run_start = 2,
+		run_end = 27,
+		punch_start = 30,
+		punch_end = 59,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:xenomorph", {"default:steelblock","default:stone"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:xenomorph", "xenomorph", "scifi_spider_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:jabba", {
+	type = "animal",
+	passive = false,
+	reach = 2,
+	damage = 0,
+	attack_type = "dogfight",
+	hp_min = 12,
+	hp_max = 22,
+	armor = 130,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:rlaser",
+   shoot_offset = 1,
+	collisionbox = {-1, -0.7, -1, 1, 1, 1},
+	visual = "mesh",
+	mesh = "jabba.b3d",
+	textures = {
+		{"scifi_jabba.png"},
+	},
+	visual_size = {x=4, y=4},
+	makes_footstep_sound = false,
+	walk_velocity = 0.5,
+	run_velocity = 1,
+	jump = false,
+	stepheight = 1.5,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 25,
+		walk_start = 1,
+		walk_end = 20,
+		stand_start = 20,
+		stand_end = 40,
+		run_start = 1,
+		run_end = 20,
+		punch_start = 1,
+		punch_end = 20,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:jabba", {"default:desert_sand"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:jabba", "Jabba the hut", "scifi_giant_inv.png", 0)
 
 mobs:register_mob("scifi_mobs:bb8", {
 	type = "animal",
@@ -337,8 +431,9 @@ mobs:register_egg("scifi_mobs:bipedm", "Bipedal Mech", "scifi_mech_inv.png", 0)
 
 
 mobs:register_mob("scifi_mobs:giant", {
-	type = "monster",
+	type = "npc",
 	passive = false,
+	attacks_monsters = true,
 	reach = 1,
 	damage = 2,
 	attack_type = "shoot",
@@ -525,6 +620,7 @@ minetest.register_entity("scifi_mobs:xwing_player", {
 	visual = "mesh",
 	mesh = "xwing.b3d",
 	textures = {"scifi_xwing.png"},
+	hp_max = 150,
 	velocity = 15,
 	acceleration = -5,
 	damage = 2,
@@ -535,12 +631,12 @@ minetest.register_entity("scifi_mobs:xwing_player", {
 		if self.driver and clicker == self.driver then
 		object_detach(self, clicker, {x=1, y=0, z=1})
 		elseif not self.driver then
-		object_attach(self, clicker, {x=0, y=5, z=2}, {x=0, y=3, z=-2})
+		object_attach(self, clicker, {x=0, y=5, z=4}, {x=0, y=6, z=-82})
 		end
 	end,
 	on_step = function(self, dtime)
 	if self.driver then
-		object_fly(self, dtime, 20, 0.2, 0.92, true, "scifi_mobs:laser_shot", "", "")
+		object_fly(self, dtime, 20, 0.2, 0.92, true, "scifi_mobs:laser_shot", "run", "run")
 		return false
 		end
 		return true
@@ -565,7 +661,7 @@ mobs:register_mob("scifi_mobs:core", {
    arrow = "scifi_mobs:blaser",
    shoot_offset = 1,
 	collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-	visual_size = {x=3, y=3},
+	visual_size = {x=2, y=2},
 	visual = "mesh",
 	mesh = "core.b3d",
 	textures = {
