@@ -1,3 +1,12 @@
+
+
+
+--vehicle functions
+
+dofile(minetest.get_modpath("scifi_mobs").."/vehicle_functions.lua")
+
+--mobs
+
 mobs:register_mob("scifi_mobs:metroid", {
    type = "monster",
    passive = false,
@@ -109,6 +118,7 @@ mobs:register_mob("scifi_mobs:dalec", {
 	mesh = "dalek.b3d",
 	textures = {
 		{"scifi_dalek.png"},
+		{"scifi_dalek1.png"},
 	},
 	visual_size = {x=2, y=2},
 	makes_footstep_sound = false,
@@ -183,7 +193,194 @@ mobs:register_mob("scifi_mobs:spidermech", {
 
 mobs:register_spawn("scifi_mobs:spidermech", {"default:snow","default:dirt_with_grass"}, 20, 10, 15000, 2, 31000)
 
-mobs:register_egg("scifi_mobs:spidermech", "Quadraped Mech", "scifi_spider_inv.png", 0)
+mobs:register_egg("scifi_mobs:spidermech", "Quadraped Scout", "scifi_spider_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:xenomorph", {
+	type = "monster",
+	passive = false,
+	reach = 4,
+	damage = 4,
+	attack_type = "dogfight",
+	hp_min = 12,
+	hp_max = 22,
+	armor = 30,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:rlaser",
+   shoot_offset = 1,
+	collisionbox = {-1, -0, -1, 1, 2, 1},
+	visual = "mesh",
+	mesh = "xenomorph.b3d",
+	textures = {
+		{"scifi_xenomorph.png"},
+	},
+	visual_size = {x=3, y=3},
+	makes_footstep_sound = false,
+	walk_velocity = 2,
+	run_velocity = 5,
+	jump = true,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 25,
+		walk_start = 2,
+		walk_end = 27,
+		stand_start = 59,
+		stand_end = 73,
+		run_start = 2,
+		run_end = 27,
+		punch_start = 30,
+		punch_end = 59,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:xenomorph", {"default:steelblock","default:stone"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:xenomorph", "xenomorph", "scifi_spider_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:jabba", {
+	type = "animal",
+	passive = false,
+	reach = 2,
+	damage = 0,
+	attack_type = "dogfight",
+	hp_min = 12,
+	hp_max = 22,
+	armor = 130,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:rlaser",
+   shoot_offset = 1,
+	collisionbox = {-1, -0.7, -1, 1, 1, 1},
+	visual = "mesh",
+	mesh = "jabba.b3d",
+	textures = {
+		{"scifi_jabba.png"},
+	},
+	visual_size = {x=4, y=4},
+	makes_footstep_sound = false,
+	walk_velocity = 0.5,
+	run_velocity = 1,
+	jump = false,
+	stepheight = 1.5,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 25,
+		walk_start = 1,
+		walk_end = 20,
+		stand_start = 20,
+		stand_end = 40,
+		run_start = 1,
+		run_end = 20,
+		punch_start = 1,
+		punch_end = 20,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:jabba", {"default:desert_sand"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:jabba", "Jabba the hut", "scifi_giant_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:bb8", {
+	type = "animal",
+	passive = false,
+	reach = 1,
+	damage = 2,
+	attack_type = "dogfight",
+	hp_min = 22,
+	hp_max = 32,
+	armor = 230,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:blaser",
+   shoot_offset = 1,
+	collisionbox = {-0.4, -0.5, -0.4, 0.4, 0.6, 0.4},
+	visual = "mesh",
+	mesh = "bb8.b3d",
+	textures = {
+		{"scifi_bb8.png"},
+	},
+	visual_size = {x=2, y=2},
+	makes_footstep_sound = false,
+	walk_velocity = 2,
+	run_velocity = 3,
+	jump = true,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 10,
+		walk_start = 1,
+		walk_end = 25,
+		stand_start = 25,
+		stand_end = 46,
+		run_start = 1,
+		run_end = 25,
+		punch_start = 1,
+		punch_end = 1,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:bb8", {"default:desert_sand","default:ice"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:bb8", "BB8", "scifi_metroid_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:cyberman", {
+	type = "monster",
+	passive = false,
+	reach = 1,
+	damage = 2,
+	attack_type = "shoot",
+	hp_min = 52,
+	hp_max = 62,
+	armor = 230,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:blaser",
+   shoot_offset = 1,
+	collisionbox = {-0.4, -1, -0.4, 0.4, 1.5, 0.4},
+	visual = "mesh",
+	mesh = "cyberman.b3d",
+	textures = {
+		{"scifi_cyberman.png"},
+	},
+	visual_size = {x=1.5, y=1.5},
+	makes_footstep_sound = true,
+	walk_velocity = 2,
+	run_velocity = 3,
+	jump = true,
+	water_damage = 2,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 10,
+		walk_start = 30,
+		walk_end = 50,
+		stand_start = 1,
+		stand_end = 1,
+		run_start = 30,
+		run_end = 50,
+		punch_start = 1,
+		punch_end = 20,
+		shoot_start = 1,
+		shoot_end = 20,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:cyberman", {"default:cobblestone","default:sand"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:cyberman", "Cyberman", "scifi_cyberman_inv.png", 0)
 
 mobs:register_mob("scifi_mobs:bipedm", {
 	type = "monster",
@@ -230,6 +427,55 @@ mobs:register_mob("scifi_mobs:bipedm", {
 mobs:register_spawn("scifi_mobs:bipedm", {"default:stone","default:desert_sand"}, 20, 10, 15000, 2, 31000)
 
 mobs:register_egg("scifi_mobs:bipedm", "Bipedal Mech", "scifi_mech_inv.png", 0)
+
+
+
+mobs:register_mob("scifi_mobs:giant", {
+	type = "npc",
+	passive = false,
+	attacks_monsters = true,
+	reach = 1,
+	damage = 2,
+	attack_type = "shoot",
+	hp_min = 22,
+	hp_max = 32,
+	armor = 230,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:blaser",
+   shoot_offset = 1,
+	collisionbox = {-1, 0, -1, 1, 10, 1},
+	visual = "mesh",
+	mesh = "irongiant.b3d",
+	textures = {
+		{"scifi_irongiant.png"},
+	},
+	visual_size = {x=4, y=4},
+	makes_footstep_sound = false,
+	walk_velocity = 1,
+	run_velocity = 2,
+	jump = false,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 8,
+		speed_run = 8,
+		walk_start = 1,
+		walk_end = 40,
+		stand_start = 1,
+		stand_end = 1,
+		run_start = 1,
+		run_end = 40,
+		shoot_start = 40,
+		shoot_end = 60,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:giant", {"default:stone","default:dirt_with_grass"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:giant", "Iron Giant", "scifi_giant_inv.png", 0)
 
 mobs:register_mob("scifi_mobs:metalg", {
 	type = "monster",
@@ -322,6 +568,135 @@ mobs:register_mob("scifi_mobs:tank", {
 mobs:register_spawn("scifi_mobs:tank", {"default:dirt_with_grass","default:snow"}, 20, 10, 15000, 2, 31000)
 
 mobs:register_egg("scifi_mobs:tank", "Tank", "scifi_tank_inv.png", 0)
+
+--flying mobs
+
+mobs:register_mob("scifi_mobs:xwing", {
+	type = "npc",
+	passive = false,
+	attacks_monsters = true,
+	reach = 1,
+	damage = 2,
+	attack_type = "dogshoot",
+	hp_min = 62,
+	hp_max = 72,
+	armor = 230,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:rlaser",
+   shoot_offset = 1,
+	collisionbox = {-2, -1.75, -2, 2, 1.9, 2},
+	visual = "mesh",
+	mesh = "xwing.b3d",
+	textures = {
+		{"scifi_xwing.png"},
+	},
+	makes_footstep_sound = false,
+	walk_velocity = 4,
+	walk_chance = 70,
+	run_velocity = 7,
+	jump = false,
+	fly = true,
+	fall_speed = 0,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 6,
+		speed_run = 7,
+		walk_start = 1,
+		walk_end = 1,
+		stand_start = 1,
+		stand_end = 1,
+		run_start = 5,
+		run_end = 5,
+		punch_start = 5,
+		punch_end = 5,
+
+	},
+})
+
+minetest.register_entity("scifi_mobs:xwing_player", {
+	visual = "mesh",
+	mesh = "xwing.b3d",
+	textures = {"scifi_xwing.png"},
+	hp_max = 150,
+	velocity = 15,
+	acceleration = -5,
+	damage = 2,
+	animation_speed = 5,
+	physical = true,
+	collisionbox = {-2, -1.75, -2, 2, 1.9, 2},
+	on_rightclick = function(self, clicker)
+		if self.driver and clicker == self.driver then
+		object_detach(self, clicker, {x=1, y=0, z=1})
+		elseif not self.driver then
+		object_attach(self, clicker, {x=0, y=5, z=4}, {x=0, y=6, z=-82})
+		end
+	end,
+	on_step = function(self, dtime)
+	if self.driver then
+		object_fly(self, dtime, 20, 0.2, 0.92, true, "scifi_mobs:laser_shot", "run", "run")
+		return false
+		end
+		return true
+	end,
+})
+
+mobs:register_spawn("scifi_mobs:xwing", {"default:leaves","default:pine_needles"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:xwing", "X-wing", "scifi_xwing_inv.png", 0)
+mobs:register_egg("scifi_mobs:xwing_player", "X-wing(rideable)", "scifi_xwing_inv.png", 0)
+
+mobs:register_mob("scifi_mobs:core", {
+	type = "monster",
+	passive = false,
+	reach = 1,
+	damage = 2,
+	attack_type = "dogshoot",
+	hp_min = 62,
+	hp_max = 72,
+	armor = 230,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:blaser",
+   shoot_offset = 1,
+	collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+	visual_size = {x=2, y=2},
+	visual = "mesh",
+	mesh = "core.b3d",
+	textures = {
+		{"scifi_core1.png"},
+		{"scifi_core2.png"},
+		{"scifi_core3.png"},
+	},
+	makes_footstep_sound = false,
+	walk_velocity = 2,
+	run_velocity = 3,
+	jump = true,
+	fly = true,
+	fall_speed = 0,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 6,
+		speed_run = 7,
+		walk_start = 1,
+		walk_end = 1,
+		stand_start = 1,
+		stand_end = 11,
+		run_start = 1,
+		run_end = 1,
+		shoot_start = 1,
+		shoot_end = 1,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:core", {"default:dirt_with_grass","default:steelblock"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:core", "Core/Sphere", "scifi_core_inv.png", 0)
 
 
 --lasers and stuff
