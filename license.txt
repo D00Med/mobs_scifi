@@ -23,3 +23,8 @@ License for Textures, Models
 ---------------------------------------
 
 CC BY-SA 3.0 UNPORTED. Created by D00Med
+
+License for sounds:
+Dalek_Voice.ogg - CC BY-SA 3.0 UNPORTED. By Donlock (https://commons.wikimedia.org/wiki/File:Dalek_Voice.ogg)
+
+Laser.ogg - CC BY 3.0 by Mike Koenig

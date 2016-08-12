@@ -114,6 +114,10 @@ mobs:register_mob("scifi_mobs:dalec", {
    arrow = "scifi_mobs:glaser",
    shoot_offset = 1,
 	collisionbox = {-0.4, -0.65, -0.4, 0.4, 0.6, 0.4},
+   sounds = {
+      shoot_attack = "Laser",
+      random = "Dalek_Voice",
+   },
 	visual = "mesh",
 	mesh = "dalek.b3d",
 	textures = {
@@ -347,6 +351,9 @@ mobs:register_mob("scifi_mobs:cyberman", {
    arrow = "scifi_mobs:blaser",
    shoot_offset = 1,
 	collisionbox = {-0.4, -1, -0.4, 0.4, 1.5, 0.4},
+   sounds = {
+      shoot_attack = "Laser",
+   },
 	visual = "mesh",
 	mesh = "cyberman.b3d",
 	textures = {
@@ -395,6 +402,9 @@ mobs:register_mob("scifi_mobs:bipedm", {
    arrow = "scifi_mobs:rlaser",
    shoot_offset = 1,
 	collisionbox = {-0.6, -1.35, -0.6, 0.6, 1.9, 0.6},
+   sounds = {
+      shoot_attack = "Laser",
+   },
 	visual = "mesh",
 	mesh = "mecha.b3d",
 	textures = {
@@ -444,6 +454,9 @@ mobs:register_mob("scifi_mobs:giant", {
    arrow = "scifi_mobs:blaser",
    shoot_offset = 1,
 	collisionbox = {-1, 0, -1, 1, 10, 1},
+   sounds = {
+      shoot_attack = "Laser",
+   },
 	visual = "mesh",
 	mesh = "irongiant.b3d",
 	textures = {
@@ -490,6 +503,9 @@ mobs:register_mob("scifi_mobs:metalg", {
    arrow = "scifi_mobs:rlaser",
    shoot_offset = 1,
 	collisionbox = {-0.6, -1.1, -0.6, 0.6, 1.9, 0.6},
+   sounds = {
+      shoot_attack = "Laser",
+   },
 	visual = "mesh",
 	mesh = "metalgear.b3d",
 	textures = {
@@ -536,6 +552,9 @@ mobs:register_mob("scifi_mobs:tank", {
    arrow = "scifi_mobs:pulse",
    shoot_offset = 1,
 	collisionbox = {-1.8, -0.8, -1.3, 1.8, 1.2, 1.3},
+   sounds = {
+      shoot_attack = "Laser",
+   },
 	visual = "mesh",
 	mesh = "tank2.b3d",
 	textures = {
@@ -585,6 +604,9 @@ mobs:register_mob("scifi_mobs:xwing", {
    arrow = "scifi_mobs:rlaser",
    shoot_offset = 1,
 	collisionbox = {-2, -1.75, -2, 2, 1.9, 2},
+   sounds = {
+      shoot_attack = "Laser",
+   },
 	visual = "mesh",
 	mesh = "xwing.b3d",
 	textures = {
@@ -661,6 +683,9 @@ mobs:register_mob("scifi_mobs:core", {
    arrow = "scifi_mobs:blaser",
    shoot_offset = 1,
 	collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+   sounds = {
+      shoot_attack = "Laser",
+   },
 	visual_size = {x=2, y=2},
 	visual = "mesh",
 	mesh = "core.b3d",
