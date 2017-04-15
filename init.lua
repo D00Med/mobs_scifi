@@ -20,7 +20,6 @@ mobs:register_mob("scifi_mobs:metroid", {
    collisionbox = {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3},
    visual = "mesh",
    mesh = "metroid.b3d",
-   use_texture_alpha = true,
    textures = {
       {"scifi_metroid.png"},
    },
@@ -56,6 +55,59 @@ mobs:register_mob("scifi_mobs:metroid", {
    
 mobs:register_egg("scifi_mobs:metroid", "Metroid", "scifi_metroid_inv.png", 0)
 
+mobs:register_mob("scifi_mobs:facehugger", {
+   type = "monster",
+   passive = false,
+   attacks_monsters = false,
+   damage = 1,
+   reach = 2,
+   attack_type = "dogfight",
+   hp_min = 30,
+   hp_max = 45,
+   armor = 100,
+   collisionbox = {-0.3, -0.1, -0.3, 0.3, 0.1, 0.3},
+   visual = "mesh",
+   mesh = "facehugger.b3d",
+   textures = {
+      {"scifi_facehugger.png"},
+   },
+   -- do_custom = function(self)
+		-- local pos = self.object:getpos()
+		-- local objs = minetest.get_objects_inside_radius(pos, 2)
+		-- for _, obj in pairs(objs) do
+			-- if obj:is_player() and obj:get_attach() == nil then
+					-- obj:set_attach(self.object, "", {x=0, y=8, z=0}, {x=0, y=0, z=0})
+					-- self.object:set_animation({x=46, y=46}, 20, 0)
+				-- end
+			-- end
+   -- end,
+   blood_texture = "mobs_blood.png",
+   visual_size = {x=1, y=1},
+   makes_footstep_sound = true,
+   walk_velocity = 2,
+   run_velocity = 3,
+   jump = true,
+   stepheight = 1.5,
+   water_damage = 0,
+   lava_damage = 2,
+   light_damage = 0,
+   view_range = 7,
+   animation = {
+      speed_normal = 12,
+      speed_run = 20,
+      walk_start = 10,
+      walk_end = 30,
+      run_start = 10,
+      run_end = 30,
+      punch_start = 30,
+      punch_end = 43,
+   },
+})
+
+mobs:spawn_specific("scifi_mobs:facehugger", {"default:dirt_with_dry_grass"}, {"default:stone"}, 20, 0, 300, 15000, 2, -100, 11000)
+   
+mobs:register_egg("scifi_mobs:facehugger", "Facehugger", "scifi_facehugger_inv.png", 0)
+
 mobs:register_mob("scifi_mobs:r2", {
 	type = "animal",
 	passive = false,
@@ -64,7 +116,7 @@ mobs:register_mob("scifi_mobs:r2", {
 	attack_type = "shoot",
 	hp_min = 22,
 	hp_max = 32,
-	armor = 230,
+	armor = 80,
    shoot_interval = 2.5,
    arrow = "scifi_mobs:glaser",
    shoot_offset = 1,
@@ -106,10 +158,10 @@ mobs:register_mob("scifi_mobs:dalec", {
 	passive = false,
 	reach = 1,
 	damage = 2,
-	attack_type = "dogshoot",
+	attack_type = "shoot",
 	hp_min = 22,
 	hp_max = 32,
-	armor = 230,
+	armor = 80,
    shoot_interval = 2.5,
    arrow = "scifi_mobs:glaser",
    shoot_offset = 1,
@@ -161,7 +213,7 @@ mobs:register_mob("scifi_mobs:spidermech", {
 	attack_type = "dogfight",
 	hp_min = 22,
 	hp_max = 32,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:rlaser",
    shoot_offset = 1,
@@ -300,7 +352,7 @@ mobs:register_mob("scifi_mobs:bb8", {
 	attack_type = "dogfight",
 	hp_min = 22,
 	hp_max = 32,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:blaser",
    shoot_offset = 1,
@@ -346,7 +398,7 @@ mobs:register_mob("scifi_mobs:cyberman", {
 	attack_type = "shoot",
 	hp_min = 52,
 	hp_max = 62,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:blaser",
    shoot_offset = 1,
@@ -394,10 +446,10 @@ mobs:register_mob("scifi_mobs:bipedm", {
 	passive = false,
 	reach = 1,
 	damage = 2,
-	attack_type = "dogshoot",
+	attack_type = "shoot",
 	hp_min = 22,
 	hp_max = 32,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:rlaser",
    shoot_offset = 1,
@@ -449,10 +501,10 @@ mobs:register_mob("scifi_mobs:giant", {
 	attack_type = "shoot",
 	hp_min = 22,
 	hp_max = 32,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:blaser",
-   shoot_offset = 1,
+   shoot_offset = -1,
 	collisionbox = {-1, 0, -1, 1, 10, 1},
    sounds = {
       shoot_attack = "Laser",
@@ -498,7 +550,7 @@ mobs:register_mob("scifi_mobs:metalg", {
 	attack_type = "shoot",
 	hp_min = 52,
 	hp_max = 82,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:rlaser",
    shoot_offset = 1,
@@ -539,15 +591,65 @@ mobs:register_spawn("scifi_mobs:metalg", {"default:stone","default:dirt_with_dry
 
 mobs:register_egg("scifi_mobs:metalg", "Metal Gear", "scifi_mech_inv.png", 0)
 
+
+mobs:register_mob("scifi_mobs:assaultsuit", {
+	type = "monster",
+	passive = false,
+	reach = 1,
+	damage = 2,
+	attack_type = "shoot",
+	hp_min = 72,
+	hp_max = 102,
+	armor = 100,
+   shoot_interval = 1.5,
+   arrow = "scifi_mobs:glaser",
+   shoot_offset = 0,
+	collisionbox = {-0.6, 0, -0.6, 0.6, 3.5, 0.6},
+   sounds = {
+      shoot_attack = "Laser",
+   },
+	visual = "mesh",
+	mesh = "assaultsuit.b3d",
+	textures = {
+		{"scifi_assaultsuit.png"},
+	},
+	visual_size = {x=1, y=1},
+	makes_footstep_sound = true,
+	walk_velocity = 2,
+	run_velocity = 3,
+	jump = true,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	view_range = 14,
+	animation = {
+		speed_normal = 10,
+		speed_run = 12,
+		walk_start = 120,
+		walk_end = 140,
+		stand_start = 80,
+		stand_end = 110,
+		run_start = 120,
+		run_end = 140,
+		shoot_start = 40,
+		shoot_end = 51,
+
+	},
+})
+
+mobs:register_spawn("scifi_mobs:assaultsuit", {"default:stone","default:dirt_with_grass"}, 20, 10, 15000, 2, 31000)
+
+mobs:register_egg("scifi_mobs:assaultsuit", "Assault Suit", "scifi_assaultsuit_inv.png", 0)
+
 mobs:register_mob("scifi_mobs:tank", {
 	type = "monster",
 	passive = false,
 	reach = 1,
 	damage = 2,
-	attack_type = "dogshoot",
+	attack_type = "shoot",
 	hp_min = 22,
 	hp_max = 32,
-	armor = 230,
+	armor = 80,
    shoot_interval = 0.5,
    arrow = "scifi_mobs:pulse",
    shoot_offset = 1,
@@ -596,10 +698,10 @@ mobs:register_mob("scifi_mobs:xwing", {
 	attacks_monsters = true,
 	reach = 1,
 	damage = 2,
-	attack_type = "dogshoot",
+	attack_type = "shoot",
 	hp_min = 62,
 	hp_max = 72,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:rlaser",
    shoot_offset = 1,
@@ -675,10 +777,10 @@ mobs:register_mob("scifi_mobs:core", {
 	passive = false,
 	reach = 1,
 	damage = 2,
-	attack_type = "dogshoot",
+	attack_type = "shoot",
 	hp_min = 62,
 	hp_max = 72,
-	armor = 230,
+	armor = 80,
    shoot_interval = 1.5,
    arrow = "scifi_mobs:blaser",
    shoot_offset = 1,
@@ -730,7 +832,7 @@ mobs:register_arrow("scifi_mobs:blaser", {
    visual = "sprite",
    visual_size = {x = 0.5, y = 0.5},
    textures = {"scifi_mobs_laser.png"},
-   velocity = 8,
+   velocity = 18,
    tail = 1, -- enable tail
    tail_texture = "scifi_mobs_laser.png",
 
@@ -777,6 +879,59 @@ mobs:register_arrow("scifi_mobs:pulse", {
 
    hit_node = function(self, pos, node)
       self.object:remove()
+   end,
+})
+mobs:register_arrow("scifi_mobs:glaser", {
+   visual = "sprite",
+   visual_size = {x = 0.5, y = 0.5},
+   textures = {"scifi_mobs_glaser.png"},
+   velocity = 18,
+   tail = 1, -- enable tail
+   tail_texture = "scifi_mobs_glaser.png",
+
+   hit_player = function(self, player)
+      player:punch(self.object, 1.0, {
+         full_punch_interval = 1.0,
+         damage_groups = {fleshy = 8},
+      }, nil)
+   end,
+   
+   hit_mob = function(self, player)
+      player:punch(self.object, 1.0, {
+         full_punch_interval = 1.0,
+         damage_groups = {fleshy = 8},
+      }, nil)
+   end,
+
+   hit_node = function(self, pos, node)
+      mobs:explosion(pos, 1, 1, 1)
+   end,
+})
+
+mobs:register_arrow("scifi_mobs:rlaser", {
+   visual = "sprite",
+   visual_size = {x = 0.5, y = 0.5},
+   textures = {"scifi_mobs_rlaser.png"},
+   velocity = 18,
+   tail = 1, -- enable tail
+   tail_texture = "scifi_mobs_rlaser.png",
+
+   hit_player = function(self, player)
+      player:punch(self.object, 1.0, {
+         full_punch_interval = 1.0,
+         damage_groups = {fleshy = 8},
+      }, nil)
+   end,
+   
+   hit_mob = function(self, player)
+      player:punch(self.object, 1.0, {
+         full_punch_interval = 1.0,
+         damage_groups = {fleshy = 8},
+      }, nil)
+   end,
+
+   hit_node = function(self, pos, node)
+      mobs:explosion(pos, 1, 1, 1)
    end,
 })
 
@@ -1046,7 +1201,7 @@ minetest.register_tool("scifi_mobs:blaster", {
 			if inv:contains_item("main", "scifi_mobs:smallcell") then
 			local remov = inv:remove_item("main", "scifi_mobs:smallcell")
 			local obj = minetest.env:add_entity({x=playerpos.x+dir.x,y=playerpos.y+1.5+dir.y,z=playerpos.z+0+dir.z}, "scifi_mobs:laser_shot")
-			local vec = {x=dir.x*9,y=dir.y*9,z=dir.z*9}
+			local vec = {x=dir.x*15,y=dir.y*15,z=dir.z*15}
 			obj:setvelocity(vec)
 		return itemstack
 		end
@@ -1073,7 +1228,7 @@ minetest.register_tool("scifi_mobs:pulse_pistol", {
 			if inv:contains_item("main", "scifi_mobs:icecell") then
 			local remov = inv:remove_item("main", "scifi_mobs:icecell")
 			local obj = minetest.env:add_entity({x=playerpos.x+dir.x,y=playerpos.y+1.5+dir.y,z=playerpos.z+0+dir.z}, "scifi_mobs:pulse_shot")
-			local vec = {x=dir.x*12,y=dir.y*12,z=dir.z*12}
+			local vec = {x=dir.x*18,y=dir.y*18,z=dir.z*18}
 			obj:setvelocity(vec)
 		end
 		return itemstack
@@ -1109,58 +1264,4 @@ minetest.register_tool("scifi_mobs:lasercutter", {
 		itemstack:add_wear(2000)
 		return itemstack
 	end,
-})
-
-mobs:register_arrow("scifi_mobs:glaser", {
-   visual = "sprite",
-   visual_size = {x = 0.5, y = 0.5},
-   textures = {"scifi_mobs_glaser.png"},
-   velocity = 8,
-   tail = 1, -- enable tail
-   tail_texture = "scifi_mobs_glaser.png",
-
-   hit_player = function(self, player)
-      player:punch(self.object, 1.0, {
-         full_punch_interval = 1.0,
-         damage_groups = {fleshy = 8},
-      }, nil)
-   end,
-   
-   hit_mob = function(self, player)
-      player:punch(self.object, 1.0, {
-         full_punch_interval = 1.0,
-         damage_groups = {fleshy = 8},
-      }, nil)
-   end,
-
-   hit_node = function(self, pos, node)
-      mobs:explosion(pos, 1, 1, 1)
-   end,
-})
-
-mobs:register_arrow("scifi_mobs:rlaser", {
-   visual = "sprite",
-   visual_size = {x = 0.5, y = 0.5},
-   textures = {"scifi_mobs_rlaser.png"},
-   velocity = 8,
-   tail = 1, -- enable tail
-   tail_texture = "scifi_mobs_rlaser.png",
-
-   hit_player = function(self, player)
-      player:punch(self.object, 1.0, {
-         full_punch_interval = 1.0,
-         damage_groups = {fleshy = 8},
-      }, nil)
-   end,
-   
-   hit_mob = function(self, player)
-      player:punch(self.object, 1.0, {
-         full_punch_interval = 1.0,
-         damage_groups = {fleshy = 8},
-      }, nil)
-   end,
-
-   hit_node = function(self, pos, node)
-      mobs:explosion(pos, 1, 1, 1)
-   end,
 })
